@@ -1,5 +1,3 @@
-#
-
 # Soul's Echo — Risk Register
 **Document:** Risk Register
 **Project:** Soul's Echo
@@ -80,9 +78,27 @@ Preliminary risk score:
 
 Indicative interpretation:
 
-ScoreLevel1–4Low5–9Moderate10–16High17–25CriticalThese ratings support prioritisation but do not replace judgement.
+| Score | Level |
+|---:|---|
+| 1–4 | Low |
+| 5–9 | Moderate |
+| 10–16 | High |
+| 17–25 | Critical |
+
+These ratings support prioritisation but do not replace judgement.
 
 A low-probability safety or security event may still require substantial control because of its potential consequences.
+
+### Control Status
+
+Unless a risk entry explicitly labels a control as an **Existing Control** and
+links it to evidence, entries under the legacy heading **Controls** describe
+planned or required treatment, not implemented software, hardware or operational
+protection. An approved requirement or decision is a governance control only; it
+does not prove that the product control exists.
+
+Future reviews should use **Existing Controls** and **Planned Treatment**
+explicitly and record evidence for implemented controls.
 
 ---
 

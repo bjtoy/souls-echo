@@ -298,7 +298,9 @@ Human-readable Bluetooth device names MUST NOT be treated as secure device ident
 ### BLE-005 — Reconnection
 **Priority:** MVP Mandatory
 
-The Band and Companion App SHOULD automatically re-establish an authorised local connection after temporary BLE loss where safe and appropriate.
+The Band and Companion App MUST support re-establishing an authorised local
+connection after temporary BLE loss. Automatic reconnection behaviour and its
+safety conditions remain to be defined before prototype implementation.
 
 ---
 
@@ -842,7 +844,7 @@ Backend failure MUST fail safely and MUST NOT implicitly grant access or bypass 
 ---
 
 ### BACKEND-010 — Modular Architecture
-**Priority:** MVP Mandatory
+**Priority:** MVP Desirable
 
 The initial backend SHOULD favour a maintainable modular architecture rather than unnecessary distributed microservices.
 
@@ -892,7 +894,8 @@ The architecture MUST provide a method of distinguishing legitimate registered S
 ### SEC-006 — Least Privilege
 **Priority:** MVP Mandatory
 
-Components and users SHOULD receive only the access required for their intended functions.
+Components and users MUST receive only the access required for their intended
+functions, subject to a defined authorisation model before implementation.
 
 ---
 
@@ -1093,7 +1096,9 @@ duplicated acknowledgements before prototype implementation.
 ### ACC-001 — Screen Reader Support
 **Priority:** MVP Mandatory
 
-Core Companion App workflows SHOULD support the accessibility APIs provided by supported mobile platforms.
+Core Companion App workflows MUST support the accessibility APIs provided by
+supported mobile platforms. The conformance target and supported-platform matrix
+remain to be defined during product definition.
 
 ---
 
@@ -1107,7 +1112,8 @@ Critical status information MUST NOT depend exclusively on colour.
 ### ACC-003 — Scalable Text
 **Priority:** MVP Mandatory
 
-The Companion App SHOULD appropriately support user text-size preferences.
+The Companion App MUST support user text-size preferences for core workflows.
+Detailed acceptance criteria remain to be defined during product definition.
 
 ---
 

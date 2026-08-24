@@ -118,6 +118,10 @@ This avoids building unrelated applications for every future device.
 ### Consequences
 The mobile architecture should avoid unnecessary Band-only assumptions.
 
+This decision does not require the Band MVP to implement generic abstractions or
+functionality for unvalidated future products. Additional device types remain
+subject to their own product decisions.
+
 ---
 
 ## DEC-003 — Consent Is a Core Architectural Requirement
@@ -167,6 +171,10 @@ Firmware and application design must preserve:
 - Reset behaviour
 - Disconnect controls
 Remote services may not bypass local safety controls.
+
+The Band must provide a phone-independent local means of inhibiting incoming
+remote physical interactions. Its physical implementation remains unresolved
+pending hardware, usability and accessibility research.
 
 ---
 
@@ -339,10 +347,15 @@ Clear internal module boundaries should still be maintained.
 
 Future extraction into separate services remains possible.
 
+### Review Trigger
+Review before backend architecture selection if event-delivery, isolation,
+availability, compliance or operational evidence demonstrates that a modular
+monolith cannot satisfy the defined requirements.
+
 ---
 
 ## DEC-014 — Relational Database Is the Preliminary Data Architecture Preference
-**Status:** Accepted with Review Required
+**Status:** Accepted
 **Category:** Data Architecture
 
 ### Decision
@@ -364,10 +377,18 @@ These benefit from strong integrity constraints and transactional behaviour.
 ### Consequences
 Relational database technologies should receive priority in the later technology comparison.
 
+This does not approve a database product or make a relational implementation
+irreversible.
+
+### Review Trigger
+Review after the authoritative state, consistency, event lifecycle, privacy,
+residency, recovery and operational requirements are defined and before a
+production database is selected.
+
 ---
 
 ## DEC-015 — Bluetooth Low Energy Is the Preliminary Band-to-Phone Communication Method
-**Status:** Accepted with Review Required
+**Status:** Accepted
 **Category:** Hardware / Firmware / Mobile
 
 ### Decision
@@ -378,6 +399,14 @@ BLE is widely supported on consumer mobile devices and is designed for low-power
 
 ### Consequences
 BLE security, background behaviour, battery consumption and platform limitations require structured validation.
+
+This decision does not approve a BLE chipset, pairing method, library, protocol or
+production implementation.
+
+### Review Trigger
+Review after physical-device testing of security, background mobile behaviour,
+power consumption, reliability and accessibility, and before final Band hardware
+or mobile architecture selection.
 
 ---
 
@@ -427,7 +456,7 @@ Appropriate idempotency, deduplication or local safeguards must be implemented.
 ---
 
 ## DEC-019 — Australia Is the Preliminary First Commercial Market
-**Status:** Accepted with Review Required
+**Status:** Accepted
 **Category:** Commercial / Regulatory
 
 ### Decision
@@ -440,6 +469,14 @@ Beginning with one primary jurisdiction simplifies early commercial and regulato
 Australian legal and regulatory requirements should be mapped first.
 
 International expansion requires separate assessment.
+
+Australia-first is a reversible, evidence-dependent planning assumption rather
+than an irreversible product commitment.
+
+### Review Trigger
+Review after Gate 1 evidence on customer demand, willingness to pay, regulation,
+logistics and commercial viability, and again before a commercial launch market
+is committed.
 
 ---
 
@@ -484,6 +521,130 @@ Significant architectural, product and security decisions must be recorded in th
 
 ### Consequences
 Prototype code does not automatically establish a permanent production decision.
+
+---
+
+## DEC-023 — Recipient Authority Takes Precedence
+**Status:** Accepted
+**Category:** Consent / Safety
+
+### Decision
+Recipient authority takes precedence over sender authority. Current recipient
+authorisation takes precedence over authorisation that existed when an
+interaction was created.
+
+No remote interaction has a guaranteed right to eventual physical delivery.
+
+### Consequences
+An interaction that has not produced physical output remains subject to current
+pause, block, permission, relationship, expiry and safety state.
+
+---
+
+## DEC-024 — The Band Requires Phone-Independent Local Inhibit
+**Status:** Accepted
+**Category:** Hardware / Firmware / Consent
+
+### Decision
+The Band must provide a local means of inhibiting incoming remote physical
+interactions without requiring immediate access to a phone.
+
+### Consequences
+Remote systems may not override this state. Its physical input, indication and
+accessibility implementation remain unresolved.
+
+### Review Trigger
+Review the implementation approach during hardware, usability and accessibility
+research without weakening the required user capability.
+
+---
+
+## DEC-025 — Protective Operations Are Distinct
+**Status:** Accepted
+**Category:** Consent / Product
+
+### Decision
+Pause, block, disconnect, permission revocation, local inhibit and factory reset
+are distinct operations.
+
+### Consequences
+Their effects must be represented independently in requirements, state models,
+interfaces and tests. Blocking prevents new interactions from the blocked party
+and invalidates that party's undelivered interactions.
+
+---
+
+## DEC-026 — Undelivered Events Remain Subject to Current Recipient State
+**Status:** Accepted
+**Category:** Reliability / Consent / Security
+
+### Decision
+Permission reduction or revocation, blocking, relationship termination, expiry or
+local inhibit takes precedence over an affected interaction that has not produced
+physical output.
+
+### Consequences
+Event creation and backend acceptance do not guarantee physical delivery.
+Revocation propagation and event lifecycle rules must be defined before
+architecture selection.
+
+---
+
+## DEC-027 — Uncertain Authorisation Fails Closed Before Physical Output
+**Status:** Accepted
+**Category:** Security / Safety
+
+### Decision
+Where current authorisation and event validity cannot safely be established, the
+Band must not produce remote physical output.
+
+### Consequences
+Outages, stale caches, retries, restoration and partial failure must not become
+implicit permission.
+
+---
+
+## DEC-028 — Protective Status Disclosure Is Minimized
+**Status:** Accepted
+**Category:** Privacy / Interpersonal Safety
+
+### Decision
+Safety actions and delivery feedback must not unnecessarily disclose sensitive
+recipient status to another user.
+
+### Consequences
+The sender is not automatically entitled to know whether rejection resulted from
+pause, block, permission change, local inhibit, device state or connectivity.
+
+---
+
+## DEC-029 — Band MVP Avoids Speculative Ecosystem Complexity
+**Status:** Accepted
+**Category:** Product / Architecture
+
+### Decision
+The Band is the sole physical MVP focus. Architecture should avoid obvious future
+dead ends where practical, but speculative future-product extensibility is not an
+MVP requirement.
+
+### Consequences
+Generic capability systems and additional product abstractions require a concrete
+Band need or a later explicit decision.
+
+---
+
+## DEC-030 — Device Loss, Compromise and Transfer Require Revocation Workflows
+**Status:** Accepted
+**Category:** Security / Device Ownership
+
+### Decision
+Lost, stolen, compromised, replaced and transferred phones and Bands require
+logical credential-revocation and recovery workflows.
+
+### Consequences
+Ownership transfer invalidates previous ownership credentials and device-specific
+authority. It does not transfer the previous owner's relationships or permissions.
+The credential and provisioning implementation remains unresolved.
 
 ---
 

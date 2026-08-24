@@ -61,6 +61,10 @@ Particular caution applies to:
 - Permission changes
 - Revocation
 
+Recipient authority takes precedence over sender authority, and current recipient
+authorisation takes precedence over earlier authorisation. No remote interaction
+has a guaranteed right to eventual physical delivery.
+
 ---
 
 ## 4. Fail Closed
@@ -234,12 +238,20 @@ Potential requirements include:
 - Secure recovery or reset
 The final process requires design.
 
+Equivalent workflows are required for a lost, stolen, replaced or compromised
+phone. Recovery must not silently restore revoked relationship, device or
+permission authority.
+
 ---
 
 ## 19. Ownership Transfer
 Legitimate resale, gifting or transfer must not preserve the previous owner's access.
 
 A secure ownership-transfer process must be established before commercial launch.
+
+Transfer must invalidate previous ownership credentials and device-specific
+authority. The previous owner's relationships and permissions must not transfer
+to the new owner.
 
 ---
 
@@ -269,6 +281,9 @@ Factory reset must place the device into a defined security state.
 
 Reset behaviour must not accidentally preserve previous remote authorisation.
 
+Factory reset is distinct from pause, block, disconnect, permission revocation
+and the Band's ordinary local incoming-interaction inhibit.
+
 ---
 
 # PART G — RELATIONSHIPS AND CONSENT
@@ -290,10 +305,17 @@ The system must support:
 - Revocation
 - Disconnection
 
+An interaction remains subject to current recipient authority until physical
+output occurs. Earlier consent does not create a right to eventual delivery.
+
 ---
 
 ## 25. Independent Revocation
 Either participant must be capable of ending or restricting the connection without requiring approval from the other participant.
+
+Pause, block, disconnect and permission revocation are distinct actions. Blocking
+prevents new interactions from the blocked party and invalidates that party's
+undelivered interactions.
 
 ---
 
@@ -346,6 +368,10 @@ The Band must independently enforce relevant local safety limits.
 
 Backend permission does not authorise unlimited physical output.
 
+The Band must enforce a phone-independent local incoming-interaction inhibit.
+Remote systems must not bypass it. Its physical implementation remains unresolved
+pending hardware, usability and accessibility research.
+
 ---
 
 # PART I — REMOTE PHYSICAL INTERACTIONS
@@ -387,10 +413,16 @@ A remote user must never be capable of disabling the recipient's local safety co
 ## 36. Pause
 Recipients must have a simple mechanism for temporarily disabling incoming interactions.
 
+The Band-local inhibit must remain usable without immediate phone access.
+
 ---
 
 ## 37. Block and Disconnect
 The final user experience should provide clear mechanisms for permanently preventing unwanted interaction.
+
+Block and disconnect must remain independently expressible. Protective actions
+should not unnecessarily disclose whether a recipient has paused, blocked,
+changed permission, lost connectivity or applied a local inhibit.
 
 ---
 
@@ -398,6 +430,9 @@ The final user experience should provide clear mechanisms for permanently preven
 
 ## 38. Event Authentication
 The recipient system must be capable of determining whether a remote event is legitimate.
+
+Event creation, authorisation, routing, delivery and physical output are distinct
+stages. Backend acceptance is not proof that physical delivery remains permitted.
 
 ---
 
@@ -419,6 +454,9 @@ Exact implementation remains subject to security design.
 Every remotely delivered physical-interaction event should have an appropriate validity window.
 
 Expired events must not unexpectedly trigger a device.
+
+Exact validity windows remain unresolved until later product and technical
+research.
 
 ---
 
@@ -500,6 +538,9 @@ Sensitive cached information requires appropriate protection.
 The threat model must consider a compromised or stolen phone.
 
 A phone's possession alone should not necessarily provide unlimited permanent access to another person's Soul's Echo relationship.
+
+The logical security model must support phone-session revocation, replacement and
+recovery without silently restoring obsolete authority.
 
 ---
 
@@ -625,6 +666,10 @@ If proposed later, the project must evaluate:
 - Deletion
 - Legal implications
 
+Operational metadata, logs, delivery acknowledgements and analytics can also
+reveal relationship or behavioural patterns and must not be treated as harmless
+merely because they are not displayed as user-facing history.
+
 ---
 
 ## 67. Location
@@ -650,6 +695,9 @@ Personal relationship information must not be collected for advertising profilin
 
 ## 70. Retention Principle
 Data should not be retained indefinitely by default.
+
+Possible future analytics, product development or convenience is not by itself a
+sufficient reason to retain sensitive interaction metadata.
 
 ---
 
@@ -689,6 +737,10 @@ An appropriate account-deletion process must exist before commercial launch.
 
 ## 75. Relationship Deletion
 Ending a relationship should remove or invalidate the associated active permissions.
+
+The design must also address undelivered interactions and retained relationship
+metadata without exposing unnecessary protective-status information to the other
+party.
 
 ---
 
@@ -863,6 +915,10 @@ Revocation must work even if the other person does not agree.
 ## 93. Harassment
 Rate limits, pause, blocking and revocation should help prevent Soul's Echo interactions from becoming a harassment mechanism.
 
+Rate limiting alone is insufficient. The recipient must have independent local
+inhibit, block and revocation controls, and undelivered events must respect those
+controls.
+
 ---
 
 ## 94. Coercion
@@ -881,6 +937,9 @@ The application should avoid unnecessarily revealing:
 - Behavioural patterns
 - Information about other relationships
 unless a justified and consented feature specifically requires it.
+
+Delivery feedback must not unnecessarily reveal whether a recipient has paused,
+blocked, changed permissions, applied a local inhibit or lost connectivity.
 
 ---
 
@@ -937,6 +996,10 @@ The following remain unresolved:
 - Security-support lifetime
 - Vulnerability disclosure process
 - Incident-response ownership
+- Detailed pause, block, disconnect and permission state models
+- Lost, stolen, compromised and replacement-device workflows
+- Delivery-feedback semantics
+- Shared-phone and shared-Band authority model
 These require deliberate decisions rather than automatic framework defaults.
 
 ---

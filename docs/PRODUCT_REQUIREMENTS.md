@@ -52,6 +52,13 @@ Not required for the first commercially viable version.
 ### Future Research
 Concept requiring additional validation before inclusion in the product roadmap.
 
+Priority and normative force are separate concepts. A requirement classified as
+**MVP Mandatory** uses **MUST** for the mandatory product behaviour. A **SHOULD**
+statement identifies a desirable property and must not be treated as mandatory
+unless it is later promoted through the decision process. Requirements to define
+or validate a target at a later gate are project-stage obligations, not evidence
+that the target has already been selected or achieved.
+
 ---
 
 # PART A — SYSTEM REQUIREMENTS
@@ -79,7 +86,12 @@ Remote interactions MUST only occur between users with an active, mutually autho
 ### SYS-003 — Local Control
 **Priority:** MVP Mandatory
 
-The owner or authorised local user of a Band MUST retain ultimate control over whether remote interactions are accepted by their device.
+The wearer or authorised local user of a Band MUST retain practical control over
+whether incoming remote physical interactions are accepted by their device,
+including when they cannot immediately access their phone.
+
+Remote services, senders and previously granted permissions MUST NOT override a
+locally applied incoming-interaction inhibit.
 
 ---
 
@@ -88,7 +100,12 @@ The owner or authorised local user of a Band MUST retain ultimate control over w
 
 The system MUST support revocation of an established user relationship.
 
-Revocation MUST prevent subsequent remote interaction once the updated authorisation state has propagated through the system.
+Revocation or permission reduction MUST invalidate affected interactions that
+have not yet produced physical output. Current recipient authorisation MUST take
+precedence over authorisation that existed when an interaction was created.
+
+The system MUST define how revocation propagates through every component capable
+of retaining or delivering an interaction.
 
 ---
 
@@ -100,9 +117,14 @@ Loss of connectivity, backend failure, application failure or malformed communic
 ---
 
 ### SYS-006 — Ecosystem Extensibility
-**Priority:** MVP Mandatory
+**Priority:** MVP Desirable
 
-The core identity, device, consent and event architecture SHOULD support future Soul's Echo device types without requiring replacement of the fundamental account model.
+The Band MVP SHOULD avoid obvious architectural dead ends where doing so does not
+add material speculative complexity.
+
+The MVP MUST NOT be required to implement generic capability models, additional
+physical product types or other abstractions solely for unvalidated future
+ecosystem products.
 
 ---
 
@@ -142,12 +164,29 @@ The Band MUST provide at least one deliberate local interaction mechanism capabl
 
 The final input mechanism may include capacitive touch, pressure, button input or another validated approach.
 
+This initiation input is distinct from the local safety control in
+`BAND-FR-005`.
+
 ---
 
-### BAND-FR-005 — Accidental Activation
+### BAND-FR-005 — Local Incoming-Interaction Inhibit
 **Priority:** MVP Mandatory
 
-The Band SHOULD minimise unintended activation during ordinary wear.
+The Band MUST provide a deliberate, phone-independent local means of pausing or
+disabling incoming remote physical interactions.
+
+The Band MUST enforce this state locally, and remote instructions MUST NOT be
+capable of bypassing it. The physical mechanism and the accessible local
+indication of this state remain subject to hardware, usability and accessibility
+research.
+
+---
+
+### BAND-FR-015 — Accidental Activation and Resumption
+**Priority:** MVP Mandatory
+
+The Band MUST be designed to minimise unintended event initiation and unintended
+resumption of incoming interactions during ordinary wear.
 
 The final interaction design MUST be validated through prototype testing.
 
@@ -277,6 +316,9 @@ The Band MUST provide a secure factory-reset mechanism.
 
 Reset behaviour MUST invalidate or remove relevant previous pairing state.
 
+Factory reset is a device-lifecycle operation and MUST NOT be treated as a
+substitute for ordinary pause, block, disconnect or permission revocation.
+
 ---
 
 ### BLE-008 — Ownership Transfer
@@ -284,7 +326,29 @@ Reset behaviour MUST invalidate or remove relevant previous pairing state.
 
 A defined process MUST exist for legitimately transferring a Band to another user.
 
-Previous ownership MUST NOT provide continuing remote access after transfer is completed.
+Previous ownership credentials, device authorisations and device-specific
+permissions MUST be invalidated when transfer is completed.
+
+Interpersonal relationships belonging to the previous owner MUST NOT
+automatically transfer to the new owner.
+
+---
+
+### BLE-009 — Lost or Stolen Band
+**Priority:** MVP Mandatory
+
+The platform MUST provide a logical workflow for reporting a Band lost or stolen,
+revoking its relevant credentials and preventing unauthorised reassignment.
+
+The implementation depends on the later device-identity and provisioning design.
+
+---
+
+### BLE-010 — Compromised Band
+**Priority:** MVP Mandatory
+
+The platform MUST provide a logical means to revoke or quarantine a Band whose
+identity or credentials are reasonably believed to be compromised.
 
 ---
 
@@ -377,6 +441,23 @@ The application MUST guide users through initial Band setup and pairing.
 
 ---
 
+### APP-FR-016 — Lost, Stolen or Compromised Phone
+**Priority:** MVP Mandatory
+
+The platform MUST provide logical account, session and device-access revocation
+and recovery workflows for a lost, stolen or compromised phone.
+
+---
+
+### APP-FR-017 — Phone Replacement
+**Priority:** MVP Mandatory
+
+The platform MUST define a secure workflow for replacing a phone without treating
+physical possession of the replacement phone as sufficient proof of account or
+Band authority.
+
+---
+
 ### APP-FR-004 — Device Status
 **Priority:** MVP Mandatory
 
@@ -410,6 +491,8 @@ The application MUST make the current connection relationship understandable to 
 
 Users MUST be able to review and modify the permissions granted to connected users.
 
+Permission reduction or revocation is distinct from pause, block and disconnect.
+
 ---
 
 ### APP-FR-009 — Pause
@@ -423,6 +506,22 @@ Users MUST be able to temporarily prevent remote interactions without necessaril
 **Priority:** MVP Mandatory
 
 Users MUST be able to terminate an established Soul's Echo relationship.
+
+Disconnect is distinct from pause, block and permission modification.
+
+---
+
+### APP-FR-015 — Block
+**Priority:** MVP Mandatory
+
+Users MUST be able to block another party independently without requiring that
+party's approval.
+
+Blocking MUST prevent new interactions from the blocked party and invalidate
+undelivered interactions associated with that party.
+
+Protective status information MUST NOT be disclosed to the blocked party unless
+the disclosure has a necessary, documented and safety-reviewed purpose.
 
 ---
 
@@ -441,11 +540,12 @@ Core application functionality MUST be designed with accessibility requirements 
 ---
 
 ### APP-FR-013 — Multi-Device Architecture
-**Priority:** MVP Mandatory
+**Priority:** Post-MVP
 
-The application architecture SHOULD support future ownership of multiple Soul's Echo devices.
+The application MAY later support ownership of multiple Soul's Echo devices.
 
-The initial interface MAY expose only functionality required by the Band.
+The Band MVP MUST NOT acquire speculative complexity solely to support
+unvalidated future device types.
 
 ---
 
@@ -490,12 +590,18 @@ The architecture MUST support permissions at sufficient granularity to prevent u
 
 The final permission model requires UX validation.
 
+Relationship existence MUST NOT automatically grant every available interaction
+permission.
+
 ---
 
 ### CONSENT-005 — Revocable Consent
 **Priority:** MVP Mandatory
 
 A user MUST be capable of withdrawing previously granted consent.
+
+Withdrawal MUST take precedence over affected interactions that have not yet
+produced physical output.
 
 ---
 
@@ -511,6 +617,9 @@ Revoking a connection MUST NOT require approval from the other connected user.
 
 A user MUST be capable of temporarily suspending incoming remote interactions.
 
+Pause MUST NOT require termination of the relationship and MUST remain distinct
+from block, disconnect, permission revocation and factory reset.
+
 ---
 
 ### CONSENT-008 — Local Override
@@ -518,12 +627,34 @@ A user MUST be capable of temporarily suspending incoming remote interactions.
 
 Local device safety controls MUST take precedence over remote permissions.
 
+The wearer MUST be able to inhibit incoming remote physical interactions on the
+Band without requiring immediate phone access. The physical implementation
+remains unresolved.
+
 ---
 
 ### CONSENT-009 — Relationship Change
 **Priority:** MVP Mandatory
 
 The system MUST NOT assume that consent granted during an existing personal relationship remains valid indefinitely.
+
+---
+
+### CONSENT-010 — Recipient Authority
+**Priority:** MVP Mandatory
+
+Recipient authority and current recipient authorisation MUST take precedence over
+sender authority and earlier authorisation.
+
+No remote interaction has a guaranteed right to eventual physical delivery.
+
+---
+
+### CONSENT-011 — Distinct Protective Operations
+**Priority:** MVP Mandatory
+
+Pause, block, disconnect, permission revocation, local inhibit and factory reset
+MUST be represented as distinct concepts with defined effects.
 
 ---
 
@@ -548,7 +679,8 @@ The system MUST verify that the sender is authorised to initiate the requested i
 ### EVENT-003 — Recipient Permission
 **Priority:** MVP Mandatory
 
-The system MUST verify that the recipient's current permission state allows the interaction.
+The system MUST verify that the recipient's current permission and protective
+state allows the interaction before physical output.
 
 ---
 
@@ -580,6 +712,9 @@ The system MUST define an expiry policy for delayed interaction events.
 
 An old interaction SHOULD NOT unexpectedly activate a Band long after its intended context has passed.
 
+The exact expiry duration remains a product and technical research question for
+later gates.
+
 ---
 
 ### EVENT-008 — Replay Protection
@@ -596,6 +731,9 @@ The product MUST define predictable behaviour when the recipient or recipient Ba
 
 The final delivery policy requires product and technical validation.
 
+Offline storage or earlier authorisation MUST NOT bypass a later pause, block,
+permission reduction, relationship termination, expiry or local inhibit.
+
 ---
 
 ### EVENT-010 — Delivery Feedback
@@ -604,6 +742,29 @@ The final delivery policy requires product and technical validation.
 The sender SHOULD receive appropriately privacy-preserving feedback about whether an interaction was successfully delivered.
 
 The system MUST NOT expose unnecessary recipient behavioural information merely to provide delivery status.
+
+Delivery feedback MUST NOT unnecessarily reveal whether the recipient has
+paused, blocked, changed permission, applied a local inhibit, lost connectivity
+or stopped wearing or using a Band.
+
+---
+
+### EVENT-011 — Event Lifecycle
+**Priority:** MVP Mandatory
+
+The system MUST treat creation, authorisation, routing, delivery and physical
+output as distinct event stages.
+
+An interaction that has not produced physical output MUST remain subject to
+current pause, block, permission, relationship, expiry and local safety state.
+
+---
+
+### EVENT-012 — Fail-Closed Physical Output
+**Priority:** MVP Mandatory
+
+Where current authorisation and event validity cannot safely be established, the
+Band MUST NOT produce remote physical output.
 
 ---
 
@@ -653,6 +814,9 @@ The backend MUST maintain sufficient state to determine whether a valid Soul's E
 
 Current permission and revocation state MUST be enforceable by backend services.
 
+Backend acceptance of an event MUST NOT be represented as a guarantee of physical
+delivery.
+
 ---
 
 ### BACKEND-007 — Event Routing
@@ -665,7 +829,8 @@ The backend MUST securely route authorised interaction events between appropriat
 ### BACKEND-008 — Idempotency
 **Priority:** MVP Mandatory
 
-Operations capable of causing duplicated physical effects SHOULD use appropriate idempotency or duplicate-prevention mechanisms.
+Operations capable of causing duplicated physical effects MUST use appropriate
+idempotency or duplicate-prevention mechanisms.
 
 ---
 
@@ -750,6 +915,9 @@ Security-sensitive and abuse-prone endpoints MUST implement appropriate rate con
 
 A secure account-recovery process MUST be defined before commercial deployment.
 
+Recovery MUST NOT silently restore revoked device, relationship or permission
+authority, and MUST account for interpersonal-safety risks.
+
 ---
 
 ### SEC-010 — Vulnerability Management
@@ -803,7 +971,8 @@ The core Soul's Echo experience MUST NOT require continuous user location tracki
 ### PRIV-004 — Interaction Data
 **Priority:** MVP Mandatory
 
-The platform SHOULD minimise storage of detailed historical interaction data.
+The platform MUST minimise storage of detailed historical interaction data and
+operational metadata capable of revealing relationship or behavioural patterns.
 
 Any required event metadata MUST have a documented purpose.
 
@@ -813,6 +982,9 @@ Any required event metadata MUST have a documented purpose.
 **Priority:** MVP Mandatory
 
 Personal-data categories MUST have defined retention policies before commercial launch.
+
+Data MUST NOT be retained merely for possible future analytics, product
+development or convenience.
 
 ---
 
@@ -841,6 +1013,9 @@ Third-party services MUST be assessed for privacy, security and data-processing 
 **Priority:** MVP Mandatory
 
 Information about private Soul's Echo relationships MUST NOT be made publicly discoverable by default.
+
+Protective actions and delivery outcomes MUST NOT unnecessarily expose a user's
+presence, availability, device state or safety choices to another user.
 
 ---
 
@@ -887,6 +1062,27 @@ The architecture MUST account for duplicate messages and retries.
 **Priority:** MVP Mandatory
 
 Security or expiry mechanisms that depend on time MUST appropriately account for realistic clock differences between system components.
+
+The time authority, permitted clock difference and expiry mechanism remain to be
+resolved before architecture selection and validated before prototype
+implementation.
+
+---
+
+### REL-007 — Revocation During Transit
+**Priority:** MVP Mandatory
+
+The system MUST prevent an interaction from producing physical output when an
+applicable block, revocation, permission reduction, relationship termination or
+local inhibit takes effect before that output.
+
+---
+
+### REL-008 — Out-of-Order and Acknowledgement Failure
+**Priority:** MVP Mandatory
+
+The system MUST define safe behaviour for out-of-order events and lost or
+duplicated acknowledgements before prototype implementation.
 
 ---
 

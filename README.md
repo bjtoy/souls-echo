@@ -14,11 +14,14 @@ The first product under development is the **Soul's Echo Band**, supported by th
 
 **Software platform:** Soul's Echo Companion App
 
-**Repository status:** Development foundation being established
+**Repository status:** Gate 0 consistency and control-model correction
 
 Soul's Echo is currently progressing through product definition, validation, architecture and technical planning.
 
 Production implementation should not begin until the relevant requirements and architectural decisions have been documented.
+
+All planned Gate 0 foundation documents exist. Gate 0 remains open until the
+objective exit checklist passes. Coding is not the next project stage.
 
 ---
 
@@ -47,6 +50,9 @@ The long-term ecosystem may include:
 - Accessories
 - Future compatible devices
 Only the Band and its supporting platform are currently considered part of the initial product-development focus.
+
+Future Ring, Pendant, Dock, Wellness and other ecosystem concepts must not
+introduce speculative MVP implementation complexity.
 
 ---
 
@@ -83,7 +89,8 @@ Expected responsibilities include:
 - Disconnect and revoke controls
 - Firmware-update management
 - Future multi-device management
-The application should be designed as an ecosystem platform rather than a Band-only application.
+Future multi-device management is post-MVP research. The Band MVP should avoid
+obvious dead ends without implementing speculative future-product abstractions.
 
 ---
 
@@ -116,9 +123,15 @@ Users must be capable of:
 - Temporarily disabling interactions
 - Disconnecting another user
 - Revoking previously granted permissions
+- Blocking another party
 Consent is not permanent.
 
 Local control of a person's physical device must take precedence over remote interaction.
+
+The Band must provide a phone-independent local means of inhibiting incoming
+remote physical interactions. Recipient authority and current recipient
+authorisation take precedence until physical output. Protective actions should
+not unnecessarily disclose sensitive recipient status to another user.
 
 ---
 

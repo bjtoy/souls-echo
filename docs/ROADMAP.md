@@ -65,7 +65,7 @@ Gate 0 includes:
 ## 5. Current Status
 **Status: IN PROGRESS**
 
-Completed or underway:
+All planned Gate 0 foundation documents now exist:
 
 - `PROJECT_HANDOFF.md`
 - `CODEX.md`
@@ -74,11 +74,13 @@ Completed or underway:
 - `docs/PRODUCT_REQUIREMENTS.md`
 - `docs/ARCHITECTURE.md`
 - `docs/ROADMAP.md`
-Remaining foundation documents:
-
 - `docs/DECISIONS.md`
 - `docs/SECURITY_PRIVACY.md`
 - `docs/RISK_REGISTER.md`
+
+Gate 0 remained open because the initial audit identified cross-document
+inconsistency and an incomplete recipient-control model. Closure requires the
+Gate 0 exit checklist to pass; document presence alone is insufficient.
 
 ---
 
@@ -93,13 +95,20 @@ Gate 0 may close when:
 - Major risks are documented.
 - Development governance exists.
 - Repository documentation is internally consistent.
+- Recipient authority and current authorisation precedence are consistent across requirements, architecture, security and decisions.
+- Phone-independent Band-local inhibition is a mandatory capability while its physical implementation remains unresolved.
+- Pause, block, disconnect, permission revocation, local inhibit and factory reset are distinctly defined.
+- Undelivered interactions remain subject to current recipient state and fail closed when validity cannot safely be established.
+- Critical and next-gate risks have accountable roles and review gates.
+- Remaining product, research and technology questions are assigned to later gates rather than silently resolved.
 
 ---
 
 # GATE 1 — PROBLEM AND CUSTOMER VALIDATION
 
 ## 7. Objective
-Determine whether the customer problem and proposed experience are sufficiently valuable to justify continued investment.
+Determine whether the customer problem and proposed experience are sufficiently
+valuable, understandable, respectful and safe to justify continued investment.
 
 ---
 
@@ -116,6 +125,11 @@ Research must investigate:
 8. What privacy concerns arise?
 9. What consent expectations arise?
 10. What would customers reasonably pay?
+11. Do users understand pause, block, disconnect and permission revocation as distinct actions?
+12. How do former-partner, coercive-control, gifting and shared-device scenarios affect safety expectations?
+13. What phone-independent local safety control do users expect, without prematurely selecting its mechanism?
+14. What delivery feedback is useful without exposing protective or behavioural status?
+15. Does the Australia-first assumption remain commercially and operationally plausible?
 
 ---
 
@@ -132,6 +146,14 @@ Gate 1 should include:
 - Gifting research
 - Privacy perception research
 - Consent research
+- Consent-comprehension research
+- Intrusiveness research
+- Coercive-control and former-partner scenario research
+- Gifting and shared-device research
+- Local safety-control research
+- Delivery-feedback and privacy-perception research
+- Australia-first assumption testing
+- Explicit stop and pivot criteria
 
 ---
 
@@ -158,6 +180,9 @@ Progression requires evidence supporting:
 - Acceptable consent expectations.
 - Plausible willingness to pay.
 - No discovery that fundamentally invalidates the proposition.
+- Evidence that intended users can understand and exercise the proposed protective controls.
+- Evidence that delivery feedback and local-control expectations can be pursued without unacceptable interpersonal-safety or privacy compromises.
+- A reviewed Australia-first planning assumption.
 If evidence is weak, the project should refine, pivot or stop before expensive hardware development.
 
 ---
@@ -220,6 +245,8 @@ Progression requires:
 - Preliminary cost target.
 - Preliminary retail target.
 - Defined prototype objectives.
+- Defined product semantics for pause, block, disconnect, permission revocation and local inhibit.
+- A preferred local-safety-control interaction direction supported by usability and accessibility evidence.
 
 ---
 
@@ -275,6 +302,9 @@ Gate 3 should include:
 - Replay protection
 - Revocation model
 - Secure provisioning concept
+- Account, device ownership, relationship, permission and event state models
+- Lost, stolen, compromised, replacement and transfer workflows
+- Revocation propagation and event-transit rules
 
 ---
 
@@ -289,6 +319,8 @@ Progression requires:
 - Defined prototype data model.
 - Defined event-delivery approach.
 - Major decisions recorded in `DECISIONS.md`.
+- Defined event lifecycle and failure contract.
+- Defined privacy data map and preliminary retention rules.
 
 ---
 
@@ -761,13 +793,11 @@ Brand claims must remain consistent with validated product capabilities.
 # CURRENT ACTION PLAN
 
 ## 59. Immediate Priority
-The current priority is to complete Gate 0.
+The current priority is to complete the Gate 0 consistency and recipient-control
+correction, then assess the objective Gate 0 exit checklist.
 
-Remaining documents:
-
-1. `docs/DECISIONS.md`
-2. `docs/SECURITY_PRIVACY.md`
-3. `docs/RISK_REGISTER.md`
+All planned foundation documents exist. Editing them does not by itself close the
+gate.
 
 ---
 
@@ -777,6 +807,9 @@ The next major activity should **not** automatically be coding.
 Gate 1 requires customer and market validation.
 
 In parallel, low-cost technical research may begin where it reduces uncertainty without prematurely committing substantial resources.
+
+Coding is not the next project stage. Low-cost feasibility research must not be
+misrepresented as production technology selection.
 
 ---
 

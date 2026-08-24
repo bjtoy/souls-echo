@@ -247,6 +247,11 @@ A recipient should understand:
 - How the connection can be ended
 Ending a connection should not require the approval of the other person.
 
+Pause, block, disconnect and permission revocation represent different user
+intentions and should not be collapsed into one ambiguous control. Protective
+actions should not unnecessarily disclose sensitive recipient status to another
+user.
+
 ---
 
 ## 12. Local Control
@@ -260,6 +265,14 @@ The system should provide appropriate mechanisms to:
 - Revoke permissions
 - Reset the device
 Remote access must remain subordinate to local control.
+
+The Band must provide a phone-independent local means of inhibiting incoming
+remote physical interactions. Its physical implementation remains unresolved
+pending hardware, accessibility and usability research.
+
+Recipient authority takes precedence over sender authority. An earlier permission
+or transmitted interaction does not create a guaranteed right to eventual
+physical delivery.
 
 This principle applies even when users previously granted permission.
 
@@ -312,6 +325,10 @@ The product should explore how factors such as:
 can preserve meaning while protecting recipients from unwanted behaviour.
 
 Exact limits require usability and safety testing.
+
+An interaction that has not produced physical output remains subject to the
+recipient's current pause, block, permission, relationship, expiry and local
+safety state.
 
 ---
 
@@ -369,6 +386,9 @@ Future Soul's Echo products should share common platform capabilities where appr
 - Event routing
 - Firmware management
 This should allow the ecosystem to expand without recreating foundational infrastructure for every device.
+
+This principle must not introduce speculative implementation complexity into the
+Band MVP. Future products require their own evidence and explicit decisions.
 
 ---
 
@@ -453,6 +473,9 @@ International expansion will require consideration of:
 - Accessibility
 - Intellectual property
 International expansion must not be treated as simply enabling international shipping.
+
+Australia-first is a reversible planning assumption requiring customer,
+commercial and regulatory validation.
 
 ---
 

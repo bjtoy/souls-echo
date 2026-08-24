@@ -44,6 +44,9 @@ A user must always be capable of stopping, disabling or revoking a remote intera
 
 Remote interaction must never override a user's local control of their device.
 
+The Band must provide a phone-independent local means of inhibiting incoming
+remote physical interactions. Its physical implementation remains unresolved.
+
 ### Safety and Reliability
 Physical and digital safety take priority over additional features.
 
@@ -56,7 +59,8 @@ Soul's Echo products should resemble desirable personal objects rather than cons
 Accessibility should be considered throughout hardware and software development rather than added after the product is completed.
 
 ### Expandable Architecture
-The initial architecture should support additional Soul's Echo devices and experiences without requiring the entire platform to be redesigned.
+The Band MVP should avoid obvious architectural dead ends where practical, but
+future products must not introduce speculative MVP complexity.
 
 ---
 
@@ -89,16 +93,21 @@ The initial Band must support:
 - Remote haptic feedback.
 - Remote light feedback.
 - Immediate disconnect and revoke controls.
+- Distinct pause, block, disconnect and permission-revocation controls.
+- Phone-independent Band-local inhibition of incoming remote interactions.
 - Battery-level reporting.
 - Secure firmware updates.
 - Firmware integrity verification.
 - Appropriate durability and ingress protection targets.
 - Validated battery-performance targets.
 - Interchangeable or customisable aesthetic elements where practical.
-- Architecture capable of supporting future Soul's Echo products.
+- Architecture that avoids obvious future dead ends without speculative future-product implementation.
 A user must not be capable of secretly or permanently controlling another person's Band.
 
 Remote interactions require an authorised relationship between users.
+
+Recipient authority and current recipient authorisation take precedence. No
+interaction has a guaranteed right to eventual physical delivery.
 
 ---
 
@@ -166,6 +175,14 @@ Users must be capable of:
 - Removing a paired relationship.
 Revocation should take effect promptly.
 
+Pause, block, disconnect, permission revocation, local inhibit and factory reset
+are distinct operations. Blocking invalidates undelivered interactions from the
+blocked party. Revocation or permission reduction invalidates affected
+interactions that have not produced physical output.
+
+Protective actions should not unnecessarily disclose sensitive recipient status
+to another user.
+
 No future feature should assume that previous consent represents permanent consent.
 
 ---
@@ -187,6 +204,9 @@ The project has established:
 - Initial risk identification.
 - Development-gate approach.
 - Documentation and version-control requirements.
+
+All planned foundation documents exist. Gate 0 remains open until the consistency
+and recipient-control exit checklist passes.
 
 ### Gate 1 — Validation
 This is the next major stage.
@@ -262,6 +282,11 @@ Define the preliminary architecture covering:
 - Event delivery.
 - Security.
 - Firmware updates.
+
+Technology selection remains deferred until the relevant product, security,
+failure and feasibility questions are defined. Lost, stolen, compromised,
+replacement and transferred devices require logical revocation and recovery
+workflows.
 
 ### Regulation and Compliance
 Prepare an initial Australian regulatory map covering relevant areas including:

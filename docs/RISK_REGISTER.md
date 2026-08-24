@@ -1,5 +1,3 @@
-#
-
 # Soul's Echo — Risk Register
 **Document:** Risk Register
 **Project:** Soul's Echo
@@ -80,9 +78,27 @@ Preliminary risk score:
 
 Indicative interpretation:
 
-ScoreLevel1–4Low5–9Moderate10–16High17–25CriticalThese ratings support prioritisation but do not replace judgement.
+| Score | Level |
+|---:|---|
+| 1–4 | Low |
+| 5–9 | Moderate |
+| 10–16 | High |
+| 17–25 | Critical |
+
+These ratings support prioritisation but do not replace judgement.
 
 A low-probability safety or security event may still require substantial control because of its potential consequences.
+
+### Control Status
+
+Unless a risk entry explicitly labels a control as an **Existing Control** and
+links it to evidence, entries under the legacy heading **Controls** describe
+planned or required treatment, not implemented software, hardware or operational
+protection. An approved requirement or decision is a governance control only; it
+does not prove that the product control exists.
+
+Future reviews should use **Existing Controls** and **Planned Treatment**
+explicitly and record evidence for implemented controls.
 
 ---
 
@@ -90,6 +106,9 @@ A low-probability safety or security event may still require substantial control
 
 ## RISK-001 — Insufficient Customer Demand
 **Category:** Customer / Commercial
+**Owner:** Product Lead
+**Status:** Open
+**Next Review:** Gate 1
 **Likelihood:** 3
 **Impact:** 5
 **Score:** 15 — High
@@ -121,6 +140,9 @@ Complete Gate 1 customer validation before substantial manufacturing investment.
 
 ## RISK-002 — Novelty Wears Off
 **Category:** Product
+**Owner:** Product Lead
+**Status:** Open
+**Next Review:** Gate 1
 **Likelihood:** 3
 **Impact:** 4
 **Score:** 12 — High
@@ -142,6 +164,9 @@ Avoid artificially increasing engagement merely to improve usage metrics.
 
 ## RISK-003 — Users Prefer Existing Communication
 **Category:** Product / Customer
+**Owner:** Product Lead
+**Status:** Open
+**Next Review:** Gate 1
 **Likelihood:** 3
 **Impact:** 4
 **Score:** 12 — High
@@ -156,6 +181,9 @@ Customer research must identify situations where Soul's Echo provides genuinely 
 
 ## RISK-004 — Product Feels Intrusive
 **Category:** Product / Consent
+**Owner:** Product Lead
+**Status:** Open
+**Next Review:** Gate 1
 **Likelihood:** 3
 **Impact:** 5
 **Score:** 15 — High
@@ -179,6 +207,9 @@ Remote physical interaction may feel intrusive, annoying or uncomfortable rather
 
 ## RISK-005 — Harassment Through Repeated Interaction
 **Category:** Safety / Consent
+**Owner:** Product Safety Lead
+**Status:** Open
+**Next Review:** Gate 1
 **Likelihood:** 3
 **Impact:** 5
 **Score:** 15 — High
@@ -196,10 +227,20 @@ An authorised user may repeatedly trigger another person's Band in an unwanted m
 - Recipient-controlled permissions
 - Abuse reporting consideration
 
+### Planned Treatment
+
+- Validate understanding of pause, block, disconnect and permission revocation during Gate 1
+- Require phone-independent local inhibit
+- Invalidate undelivered events after block or applicable revocation
+- Test privacy-preserving protective outcomes
+
 ---
 
 ## RISK-006 — Former Partner Retains Access
 **Category:** Consent / Security
+**Owner:** Product Safety Lead
+**Status:** Open
+**Next Review:** Gate 1
 **Likelihood:** 3
 **Impact:** 5
 **Score:** 15 — High
@@ -215,10 +256,18 @@ A relationship may end while digital permissions remain active.
 - Secure device ownership model
 - User education
 
+### Planned Treatment
+
+- Define revocation propagation across queues, sessions, applications and Bands
+- Validate former-partner scenarios during Gate 1
+
 ---
 
 ## RISK-007 — Coercive Control
 **Category:** Safety / Privacy
+**Owner:** Product Safety Lead
+**Status:** Open
+**Next Review:** Gate 1
 **Likelihood:** 2
 **Impact:** 5
 **Score:** 10 — High
@@ -239,10 +288,16 @@ Technology cannot eliminate interpersonal coercion.
 
 The product should nevertheless avoid making coercion easier.
 
+The likelihood is preliminary and must be reassessed after Gate 1 research
+informed by coercive-control scenarios.
+
 ---
 
 ## RISK-008 — Consent Is Misunderstood
 **Category:** Consent / UX
+**Owner:** Product Lead
+**Status:** Open
+**Next Review:** Gate 1
 **Likelihood:** 3
 **Impact:** 4
 **Score:** 12 — High
@@ -257,6 +312,10 @@ Users may accept permissions without understanding what remote access enables.
 - UX testing
 - Granular permissions
 - Easy review and revocation
+
+### Planned Treatment
+
+- Test comprehension of pause, block, disconnect, permission revocation and local inhibit as distinct operations
 
 ---
 
@@ -516,6 +575,9 @@ Battery, charging or enclosure failure creates thermal or physical hazards.
 
 ## RISK-021 — Poor Wearability
 **Category:** Hardware / Product
+**Owner:** Product Lead
+**Status:** Open
+**Next Review:** Gate 1
 **Likelihood:** 3
 **Impact:** 4
 **Score:** 12 — High
@@ -535,6 +597,9 @@ The Band is uncomfortable, bulky or aesthetically undesirable.
 
 ## RISK-022 — Haptic Experience Is Poor
 **Category:** Hardware / Product
+**Owner:** Product Lead
+**Status:** Open
+**Next Review:** Gate 1
 **Likelihood:** 3
 **Impact:** 4
 **Score:** 12 — High
@@ -554,6 +619,9 @@ Haptic feedback may be too weak, too strong, noisy, unpleasant or inconsistent.
 
 ## RISK-023 — Accidental Activation
 **Category:** Hardware / UX
+**Owner:** Product Safety Lead
+**Status:** Open
+**Next Review:** Gate 1
 **Likelihood:** 3
 **Impact:** 3
 **Score:** 9 — Moderate
@@ -633,6 +701,9 @@ iOS or Android background restrictions interfere with timely communication betwe
 
 ## RISK-027 — Remote Interaction Latency Is Too High
 **Category:** Technical / Product
+**Owner:** Technical Lead
+**Status:** Open
+**Next Review:** Gate 1
 **Likelihood:** 3
 **Impact:** 4
 **Score:** 12 — High
@@ -666,6 +737,11 @@ Network retries or delayed delivery cause unexpected physical responses.
 - Expiry
 - Duplicate detection
 - Firmware safeguards
+
+### Planned Treatment
+
+- Separately define duplicate, delayed, out-of-order and acknowledgement-loss behaviour
+- Validate blocking and revocation during event transit
 
 ---
 
@@ -712,6 +788,9 @@ Production devices suffer inconsistent assembly, sealing, battery, charging or e
 
 ## RISK-031 — Manufacturing Cost Exceeds Target
 **Category:** Commercial / Manufacturing
+**Owner:** Commercial Lead
+**Status:** Open
+**Next Review:** Gate 1
 **Likelihood:** 3
 **Impact:** 5
 **Score:** 15 — High
@@ -777,6 +856,9 @@ Only publish claims supported by appropriate evidence.
 
 ## RISK-034 — Soul's Echo Name Conflict
 **Category:** Intellectual Property / Brand
+**Owner:** Project Lead
+**Status:** Open
+**Next Review:** Gate 1
 **Likelihood:** 3
 **Impact:** 5
 **Score:** 15 — High
@@ -836,6 +918,9 @@ Obtain professional legal advice where required.
 
 ## RISK-037 — Development Cost Escalation
 **Category:** Financial
+**Owner:** Project Lead
+**Status:** Open
+**Next Review:** Gate 1
 **Likelihood:** 4
 **Impact:** 5
 **Score:** 20 — Critical
@@ -936,14 +1021,18 @@ The repository remains the technical source of truth.
 
 ---
 
-## RISK-042 — AI-Generated Implementation Introduces Defects
+## RISK-042 — Software Assurance Failure
 **Category:** Development / Security
+**Owner:** Technical Lead
+**Status:** Open
+**Next Review:** Every development gate
 **Likelihood:** 4
 **Impact:** 5
 **Score:** 20 — Critical
 
 ### Risk
-AI-generated code may appear functional while containing:
+Software, firmware or infrastructure changes, whether human- or AI-generated, may
+appear functional while containing:
 
 - Security vulnerabilities
 - Incorrect assumptions
@@ -960,6 +1049,7 @@ AI-generated code may appear functional while containing:
 - Small changes
 - Independent review for high-risk components
 - Never treat generated code as inherently correct
+- Apply equivalent assurance to human- and AI-generated implementation
 
 ---
 
@@ -987,6 +1077,9 @@ A breach involving an intimate connected product may substantially damage custom
 
 ## RISK-044 — Product Perceived as Surveillance Technology
 **Category:** Brand / Product
+**Owner:** Product Lead
+**Status:** Open
+**Next Review:** Gate 1
 **Likelihood:** 3
 **Impact:** 5
 **Score:** 15 — High
@@ -1009,6 +1102,9 @@ Customers or media interpret Soul's Echo as a tracking or controlling product ra
 
 ## RISK-045 — Scope Creep
 **Category:** Project
+**Owner:** Project Lead
+**Status:** Open
+**Next Review:** Every gate
 **Likelihood:** 5
 **Impact:** 4
 **Score:** 20 — Critical
@@ -1025,6 +1121,9 @@ Use classifications:
 - Future Research
 - Rejected
 Future products do not enter MVP development without an explicit decision.
+
+Speculative generic architecture for unvalidated future products is also scope
+expansion and requires a concrete Band requirement or later explicit decision.
 
 ---
 
@@ -1049,6 +1148,9 @@ The project commits to a technology because it is familiar or convenient before 
 
 ## RISK-047 — Prototype Shortcuts Become Production Architecture
 **Category:** Architecture / Security
+**Owner:** Technical Lead
+**Status:** Open
+**Next Review:** Before prototype implementation and production promotion
 **Likelihood:** 4
 **Impact:** 5
 **Score:** 20 — Critical
@@ -1064,12 +1166,251 @@ Temporary prototype choices remain in the product because replacing them later a
 - Security review
 - Explicit architecture decisions
 
+### Planned Treatment
+
+- Define prototype-only controls and explicit promotion criteria before implementation
+
+---
+
+## RISK-048 — Recipient Cannot Stop Interaction Without a Phone
+**Category:** Safety / Consent / Hardware
+**Owner:** Product Safety Lead
+**Status:** Open
+**Likelihood:** Unscored — requires Gate 1 evidence
+**Impact:** Unscored — requires safety assessment
+**Score:** Not yet assigned
+**Next Review:** Gate 1
+
+### Risk
+The recipient cannot practically inhibit incoming physical interactions when a
+phone is unavailable, compromised or unusable.
+
+### Existing Controls
+Approved requirement for a phone-independent Band-local inhibit.
+
+### Planned Treatment
+Validate user expectations during Gate 1 and evaluate accessible physical
+implementations during product definition and prototyping.
+
+---
+
+## RISK-049 — Revocation Races with an Event in Transit
+**Category:** Consent / Reliability / Security
+**Owner:** Technical Lead
+**Status:** Open
+**Likelihood:** Unscored — requires architecture analysis
+**Impact:** Unscored — requires safety assessment
+**Score:** Not yet assigned
+**Next Review:** Before architecture selection
+
+### Risk
+An event produces output after a block, revocation or permission reduction because
+an intermediate component retains older authority.
+
+### Existing Controls
+Recipient-authority and fail-closed requirements.
+
+### Planned Treatment
+Define authoritative state, event lifecycle, propagation and race semantics.
+
+---
+
+## RISK-050 — Stale Authorisation Survives Storage or Recovery
+**Category:** Security / Reliability / Privacy
+**Owner:** Technical Lead
+**Status:** Open
+**Likelihood:** Unscored — requires architecture analysis
+**Impact:** Unscored — requires safety assessment
+**Score:** Not yet assigned
+**Next Review:** Before architecture selection
+
+### Risk
+A queue, cache, application, Band, backup or restored system retains obsolete
+consent or permission state.
+
+### Planned Treatment
+Define invalidation and disaster-recovery invariants before technology selection.
+
+---
+
+## RISK-051 — Lost, Stolen or Compromised Phone Retains Authority
+**Category:** Security / Consent
+**Owner:** Security Lead
+**Status:** Open
+**Likelihood:** Unscored — requires threat modelling
+**Impact:** Unscored — requires threat modelling
+**Score:** Not yet assigned
+**Next Review:** Before architecture selection
+
+### Planned Treatment
+Define session revocation, replacement and recovery workflows.
+
+---
+
+## RISK-052 — Lost, Stolen or Compromised Band Remains Trusted
+**Category:** Security / Device Ownership
+**Owner:** Security Lead
+**Status:** Open
+**Likelihood:** Unscored — requires threat modelling
+**Impact:** Unscored — requires threat modelling
+**Score:** Not yet assigned
+**Next Review:** Before architecture selection
+
+### Planned Treatment
+Define credential revocation, quarantine and reassignment controls.
+
+---
+
+## RISK-053 — Ownership Transfer Preserves Previous Access
+**Category:** Security / Consent / Device Ownership
+**Owner:** Security Lead
+**Status:** Open
+**Likelihood:** Unscored — requires lifecycle design
+**Impact:** Unscored — requires safety assessment
+**Score:** Not yet assigned
+**Next Review:** Before architecture selection
+
+### Planned Treatment
+Define transfer invariants that invalidate previous credentials, relationships and
+permissions.
+
+---
+
+## RISK-054 — Protective Status Disclosure Causes Harm
+**Category:** Interpersonal Safety / Privacy
+**Owner:** Product Safety Lead
+**Status:** Open
+**Likelihood:** Unscored — requires Gate 1 evidence
+**Impact:** Unscored — requires specialist assessment
+**Score:** Not yet assigned
+**Next Review:** Gate 1
+
+### Planned Treatment
+Research sender feedback, coercion and former-partner scenarios; minimise status
+disclosure by default.
+
+---
+
+## RISK-055 — Shared Phone or Band Creates Ambiguous Authority
+**Category:** Consent / Device Ownership
+**Owner:** Product Lead
+**Status:** Open
+**Likelihood:** Unscored — requires Gate 1 evidence
+**Impact:** Unscored — requires safety assessment
+**Score:** Not yet assigned
+**Next Review:** Gate 1
+
+### Planned Treatment
+Research shared-device realities and define authority before architecture selection.
+
+---
+
+## RISK-056 — Account Recovery Bypasses Recipient Control
+**Category:** Security / Interpersonal Safety
+**Owner:** Security Lead
+**Status:** Open
+**Likelihood:** Unscored — requires threat modelling
+**Impact:** Unscored — requires threat modelling
+**Score:** Not yet assigned
+**Next Review:** Before architecture selection
+
+### Planned Treatment
+Threat-model recovery, notifications, reauthentication and restored authority.
+
+---
+
+## RISK-057 — Manufacturing Provisioning Compromise
+**Category:** Security / Manufacturing
+**Owner:** Security Lead
+**Status:** Open
+**Likelihood:** Unscored — requires manufacturing architecture
+**Impact:** Unscored — requires threat modelling
+**Score:** Not yet assigned
+**Next Review:** Before manufacturing architecture selection
+
+### Planned Treatment
+Define credential injection, custody, traceability and rejected-unit handling.
+
+---
+
+## RISK-058 — Security Support Ends While Devices Remain in Use
+**Category:** Security / Commercial
+**Owner:** Project Lead
+**Status:** Open
+**Likelihood:** Unscored — requires commercial planning
+**Impact:** Unscored — requires security assessment
+**Score:** Not yet assigned
+**Next Review:** Before commercial release
+
+### Planned Treatment
+Define supported lifetime, end-of-support communication and safe retirement.
+
+---
+
+## RISK-059 — Disaster Recovery Restores Obsolete Consent
+**Category:** Reliability / Consent / Security
+**Owner:** Technical Lead
+**Status:** Open
+**Likelihood:** Unscored — requires deployment design
+**Impact:** Unscored — requires safety assessment
+**Score:** Not yet assigned
+**Next Review:** Before architecture selection
+
+### Planned Treatment
+Define recovery invariants, restoration testing and stale-authorisation controls.
+
+---
+
+## RISK-060 — Delivery Feedback Exposes Behaviour or Presence
+**Category:** Privacy / Interpersonal Safety
+**Owner:** Product Safety Lead
+**Status:** Open
+**Likelihood:** Unscored — requires Gate 1 evidence
+**Impact:** Unscored — requires privacy assessment
+**Score:** Not yet assigned
+**Next Review:** Gate 1
+
+### Planned Treatment
+Research user value and harmful inference; minimise feedback by default.
+
+---
+
+## RISK-061 — Local Safety Control Is Inaccessible
+**Category:** Accessibility / Safety
+**Owner:** Product Safety Lead
+**Status:** Open
+**Likelihood:** Unscored — requires user research
+**Impact:** Unscored — requires safety assessment
+**Score:** Not yet assigned
+**Next Review:** Gate 1 and Gate 2
+
+### Planned Treatment
+Include varied dexterity, sensory and situational needs in research and prototype
+validation.
+
+---
+
+## RISK-062 — Mobile Delivery Dependency Undermines Core Reliability
+**Category:** Mobile / Product / Reliability
+**Owner:** Technical Lead
+**Status:** Open
+**Likelihood:** Unscored — requires feasibility testing
+**Impact:** Unscored — requires product research
+**Score:** Not yet assigned
+**Next Review:** Before mobile architecture selection
+
+### Planned Treatment
+Define foreground, background, suspended and terminated behaviour and test on
+physical devices before framework selection.
+
 ---
 
 # RISK GOVERNANCE
 
 ## 4. Risk Owners
-As the project grows, significant risks should receive named owners.
+Critical risks and risks requiring action in the next gate must have an accountable
+role. A named individual should replace the role when responsibility is formally
+assigned.
 
 An owner is responsible for ensuring the risk is monitored and appropriate treatment occurs.
 
@@ -1147,6 +1488,7 @@ Based on this preliminary assessment, the current highest-scoring risks include:
 
 - `RISK-037` — Development cost escalation
 - `RISK-042` — AI-generated implementation defects
+- `RISK-042` — Software assurance failure
 - `RISK-045` — Scope creep
 - `RISK-047` — Prototype shortcuts becoming production architecture
 These scores are preliminary and should change as evidence becomes available.

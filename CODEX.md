@@ -56,6 +56,10 @@ Do not design the architecture in a way that unnecessarily prevents future expan
 
 Do not implement future product functionality unless explicitly approved.
 
+Avoid obvious future dead ends where practical, but do not create generic device
+or capability abstractions solely for unvalidated future products. The Band is
+the sole physical MVP focus.
+
 ---
 
 ## 4. MVP Discipline
@@ -164,6 +168,14 @@ Previous consent must not be treated as permanent consent.
 
 A user must retain local control over their own device.
 
+Recipient authority and current recipient authorisation take precedence over the
+sender and earlier authorisation. Pause, block, disconnect, permission revocation,
+local inhibit and factory reset are distinct concepts.
+
+Blocking invalidates undelivered interactions from the blocked party. Applicable
+revocation or permission reduction invalidates interactions that have not produced
+physical output.
+
 Remote commands must never permanently override local safety controls.
 
 ---
@@ -211,6 +223,13 @@ The device must fail safely.
 
 A network or software fault must not create uncontrolled physical behaviour.
 
+The Band must provide a phone-independent local means of inhibiting incoming
+remote physical interactions. Do not assume its physical implementation until
+hardware, usability and accessibility research approves an approach.
+
+Where current authorisation cannot safely be established, remote physical output
+must fail closed.
+
 ---
 
 ## 12. Haptic and Light Events
@@ -222,6 +241,10 @@ Remote haptic or light interactions should be:
 - Revocable
 - Non-persistent by default
 Do not create an architecture that permits an authorised remote user to continuously trigger another device without appropriate controls.
+
+No remote event has a guaranteed right to eventual delivery. Until physical
+output, an event remains subject to current recipient pause, block, permission,
+relationship, expiry and local safety state.
 
 ---
 
@@ -277,6 +300,9 @@ Keep services as simple as practical during the MVP.
 Avoid unnecessary microservices.
 
 A modular monolith may be preferable during early development unless there is a clear reason otherwise.
+
+This is a reversible preference, not approval of a backend framework, database,
+cloud provider or production deployment architecture.
 
 ---
 

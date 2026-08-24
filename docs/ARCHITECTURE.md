@@ -35,6 +35,11 @@ No technology should be selected solely because it enables the fastest prototype
 
 Prototype decisions that could influence production architecture must be documented.
 
+Recipient authority takes precedence over sender authority. Current recipient
+authorisation takes precedence over authorisation that existed when an event was
+created. No remote interaction has a guaranteed right to eventual physical
+delivery.
+
 ---
 
 ## 3. High-Level Architecture
@@ -181,6 +186,10 @@ Regardless of instructions received from the application or backend, firmware mu
 - Event expiry
 - Device state
 A remote service must not be capable of instructing the Band to bypass its local safety rules.
+
+The Band must provide a phone-independent local means of inhibiting incoming
+remote physical interactions. The physical input, indication and accessibility
+implementation remain unresolved pending research and prototyping.
 
 ---
 
@@ -455,6 +464,11 @@ The architecture must accommodate:
 - Ended
 The final state model requires detailed design.
 
+Pause, block, disconnect and permission revocation are distinct operations.
+Factory reset and local inhibit are device operations rather than interpersonal
+relationship states. The detailed state machines remain required work before
+architecture selection.
+
 ---
 
 ## 23. Permission Model
@@ -532,6 +546,11 @@ Band B
 ```
 The exact transport mechanism remains undecided.
 
+The logical lifecycle distinguishes event creation, authorisation, routing,
+delivery and physical output. Backend acceptance does not guarantee eventual
+physical output. Until output occurs, the event remains subject to current
+recipient permission, pause, block, relationship, expiry and local safety state.
+
 ---
 
 ## 27. Event Envelope
@@ -558,6 +577,8 @@ The architecture must support event expiry.
 
 The final permitted delivery window requires product testing.
 
+An expired event must not produce physical output.
+
 ---
 
 ## 29. Duplicate Protection
@@ -576,6 +597,10 @@ Possible models include:
 - Short bounded delivery window
 - Limited queue with expiry
 The selected model must consider emotional meaning, privacy, reliability and the risk of unexpected delayed physical feedback.
+
+No offline model may allow stored earlier authorisation to override a later
+pause, block, permission reduction, relationship termination, expiry or local
+inhibit. Blocking invalidates undelivered events from the blocked party.
 
 ---
 
@@ -622,12 +647,20 @@ A legitimate user account must not automatically make an arbitrary physical devi
 
 Each production device should possess an appropriate device identity established during manufacturing or secure provisioning.
 
+The logical lifecycle must support credential activation, revocation, compromise
+response, loss, recovery where safe, transfer and retirement. The credential and
+provisioning implementation remains undecided.
+
 ---
 
 ## 35. Ownership
 Device ownership must be represented independently from physical BLE pairing.
 
 Physical possession or Bluetooth connectivity alone must not establish permanent platform ownership.
+
+Ownership transfer must invalidate previous ownership credentials and
+device-specific authority. The previous owner's interpersonal relationships and
+permissions must not automatically transfer with the Band.
 
 ---
 
@@ -811,6 +844,14 @@ The architecture must explicitly handle:
 - Invalid event
 - Firmware-update interruption
 - Mobile application termination
+- Push-delivery failure
+- Out-of-order event
+- Lost or duplicated acknowledgement
+- Phone loss, compromise or replacement
+- Band loss, compromise or transfer
+- Revocation, blocking or permission reduction during event transit
+- Partial backend failure
+- Disaster recovery restoring older authorisation data
 
 ---
 
@@ -820,6 +861,10 @@ Where the system cannot establish that a remote physical interaction is currentl
 In practical terms:
 
 **uncertainty must not become permission.**
+
+Where current authorisation and event validity cannot safely be established, the
+Band must not produce remote physical output. Restoration, retry and recovery
+processes must not revive obsolete consent or permission state.
 
 ---
 
@@ -842,6 +887,10 @@ Device
 This does not mean future devices should be implemented now.
 
 It means the fundamental data model should avoid obvious dead ends.
+
+Avoiding an obvious dead end is not an MVP requirement to build generic device
+capability systems. A future-product abstraction that adds present complexity
+requires a concrete Band requirement or a later explicit decision.
 
 ---
 

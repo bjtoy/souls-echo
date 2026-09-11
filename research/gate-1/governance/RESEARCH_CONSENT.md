@@ -5,6 +5,7 @@
 **Research stage:** Gate 1 product and customer discovery  
 **Status:** Preparation only — recruitment not authorised  
 **Document version:** [APPROVED VERSION REQUIRED]  
+**Approval date:** [APPROVED DATE REQUIRED]
 **Effective date:** [APPROVED EFFECTIVE DATE REQUIRED]  
 **Participant identifier:** [ASSIGN AFTER ELIGIBILITY AND CONSENT]  
 **Session date:** [SESSION DATE]
@@ -56,6 +57,16 @@ future uses.
 - [ ] I understand that participation does not guarantee a product or other benefit.
 
 ## 6. Recording — Separate Choice
+
+For the first five Early Diagnostic Review interviews, recording is not offered.
+Audio and video recording and transcription are prohibited; the session proceeds
+using approved notes-only procedures.
+
+- [ ] I understand that this Early Diagnostic Review session is notes-only and
+  will not be recorded or transcribed.
+
+The remaining choices in this section apply only to a later, separately approved
+research stage and must not be presented for the first five interviews.
 
 Recording is not included in the consent above. Recording preference during
 screening is not consent.

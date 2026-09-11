@@ -5,6 +5,7 @@
 **Scope:** Gate 1 product and customer discovery  
 **Status:** Approved governance methodology — data collection not authorised  
 **Document version:** [APPROVED VERSION REQUIRED]  
+**Approval date:** [APPROVED DATE REQUIRED]
 **Effective date:** [APPROVED EFFECTIVE DATE REQUIRED]
 
 ---
@@ -154,6 +155,11 @@ identifiable data.
 
 ## 9. Recordings and Transcription
 
+For the first five Early Diagnostic Review interviews, audio and video recording
+and transcription are prohibited. Those interviews use the notes-only procedure
+in `OPERATIONAL_READINESS.md`. The provisions below apply only to a later,
+separately approved research stage.
+
 Recording requires a separate affirmative choice. A participant may decline
 recording where the approved research method can reasonably proceed using notes.
 
@@ -185,6 +191,11 @@ Notes must distinguish:
 Do not record unnecessary names or distinctive personal details. Remove such
 details during prompt de-identification.
 
+For the Early Diagnostic Review, take contemporaneous notes, expand them promptly
+after the session, label evidence separately from interpretation, mark uncertain
+wording as paraphrase or uncertainty, never invent verbatim quotations, and
+promptly review and de-identify the expanded record.
+
 ## 11. Recruitment-Source Records
 
 Record broad recruitment source so convenience and founder-network bias can be
@@ -193,6 +204,10 @@ recruitment, community group, professional or interest group, and recruitment
 service. Do not expose unnecessary group membership in findings.
 
 ## 12. Access Control
+
+For the first five interviews, initial access is limited to the Project Lead.
+The actual storage device and location and any additional access role remain
+subject to explicit Project Lead approval.
 
 Access must be limited by role and operational need. Before collection, document:
 
@@ -207,6 +222,10 @@ Avoid shared credentials and remove access when no longer required. Exceptional
 administrative access must not become routine access.
 
 ## 13. Storage
+
+The first five interviews use a local-first arrangement with separated records
+as specified in `OPERATIONAL_READINESS.md`. No cloud or synchronisation service
+is approved.
 
 ### Local Storage
 
@@ -254,6 +273,10 @@ limitations and how withdrawal interacts with backup expiry.
 Do not promise immediate deletion from backups if the approved process cannot
 provide it. Explain practical limitations truthfully.
 
+For the first five interviews, one controlled backup may be used only after its
+location, encryption, access, retention, expiry and deletion behaviour are
+approved. Initial backup access is Project Lead-only.
+
 ## 16. Provisional Gate 1 Retention Schedule
 
 A completed provisional schedule must be approved before recruitment. These
@@ -262,14 +285,15 @@ Milestone-based rules are preferred where practical.
 
 | Data category | Approved provisional rule required before collection |
 |---|---|
-| Unselected screener responses | [For example: delete after selection and the associated eligibility review are complete; retain only de-identified recruitment-source counts where required for bias analysis.] |
-| Scheduling and contact details | [For example: delete after the relevant session, payment, withdrawal and approved follow-up purposes are complete.] |
-| Participant-ID mapping | [For example: retain only until the Gate 1 decision and applicable withdrawal period are complete, then delete unless a separately assessed requirement applies.] |
-| Consent records | [Approve a purpose-based milestone after privacy, legal, university and operational requirements are assessed.] |
-| Recordings | [For example: delete after verified notes are completed and recording-based quality review is no longer required.] |
-| Pseudonymised notes | [For example: retain through the Gate 1 decision, contradiction review and applicable withdrawal period, then de-identify further or delete under an approved rule.] |
-| Follow-up contact permission | [For example: retain only while the specific approved follow-up purpose remains operationally necessary or until withdrawn.] |
-| Aggregated or de-identified findings | [Approve a project-purpose rule that considers residual re-identification risk and continuing research value.] |
+| Unselected screener responses | Delete after Early Diagnostic Review recruitment, selection and eligibility review are complete; retain only de-identified recruitment-source counts needed for bias review. |
+| Scheduling and contact details | Delete when the session, applicable withdrawal opportunity, incentive administration and specifically consented follow-up are complete. |
+| Participant-ID mapping | Delete after the Gate 1 decision and applicable withdrawal opportunity are complete. |
+| Consent records | Retain through Gate 1 closure and applicable governance review, then delete unless an assessed obligation requires longer retention. |
+| Recordings | None may be created for the first five Early Diagnostic Review interviews. |
+| Raw interviewer notes | Delete after expanded notes are checked, de-identified and no longer required to honour the applicable withdrawal opportunity. |
+| Pseudonymised or de-identified notes | Retain through Gate 1 decision-making and contradiction review, then review for further de-identification or deletion. |
+| Follow-up contact permission and contact | Retain only while the specifically approved purpose remains necessary, or until permission is withdrawn. |
+| Aggregated findings | Retain as project evidence while useful, subject to residual re-identification review. |
 
 Before recruitment, replace every placeholder with a clear rule, responsible role,
 trigger and deletion action. Do not state that a period is legally required unless

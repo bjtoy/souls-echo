@@ -6,6 +6,7 @@
 **Status:** Draft protocol only — interviews not authorised  
 **Scope:** Five neutral problem interviews before concept exposure  
 **Document version:** [APPROVED VERSION REQUIRED]  
+**Approval date:** [APPROVED DATE REQUIRED]
 **Effective date:** [APPROVED EFFECTIVE DATE REQUIRED]
 
 ---
@@ -64,16 +65,16 @@ Do not conduct an interview until:
 - a real dedicated contact and withdrawal channel is available;
 - data location, access, retention, backup and deletion rules are approved;
 - all operational placeholders are resolved;
-- the notes-only process is approved;
-- any recording process and technology are separately approved; and
+- the notes-only process is approved and no recording or transcription is used; and
 - required privacy, specialist or university reviews are complete.
 
-No recording, transcription, scheduling, storage or external research technology
-is selected by this guide.
+The first five interviews are notes-only. No audio or video recording or
+transcription is permitted. No scheduling, storage or external research
+technology is selected by this guide.
 
 ## 4. Proposed Session Outline
 
-**Proposed duration:** [APPROVED DURATION REQUIRED]
+**Target duration:** 35 minutes; **maximum planned duration:** 45 minutes
 
 Indicative allocation, subject to pilot review rather than participant pressure:
 
@@ -96,7 +97,7 @@ Before substantive questions:
 - [ ] confirm the approved Participant Information was supplied;
 - [ ] confirm consent choices using the approved process;
 - [ ] confirm note-taking permission;
-- [ ] confirm recording choice only if recording has separately been operationally approved;
+- [ ] confirm that the session is notes-only and that no recording or transcription will occur;
 - [ ] remind the participant that participation is voluntary;
 - [ ] remind them that any question may be skipped;
 - [ ] remind them that they may take a break or stop at any time;
@@ -378,8 +379,8 @@ interviews. Strong negative evidence may still justify pausing or escalating.
 - Interview date:
 - Interviewer identifier:
 - Approved document versions used:
-- Recording used: Yes / No
-- Notes-only process used: Yes / No
+- Recording used: No — required for the first five interviews
+- Notes-only process used: Yes — required for the first five interviews
 - Participant stopped or skipped topics: [record only what is operationally necessary]
 
 ### Participant Evidence
@@ -575,11 +576,7 @@ contradictions, participant variation and recruitment bias.
 The following remain deliberately unresolved:
 
 - participant and withdrawal contact details;
-- interview duration;
 - incentive;
-- recording technology and format;
-- recording storage;
-- transcription method;
 - research-note storage;
 - recruitment platform;
 - scheduling system;
@@ -587,6 +584,9 @@ The following remain deliberately unresolved:
 - interviewer identities;
 - final retention milestones; and
 - approved versions and effective dates.
+
+For the first five interviews, duration is resolved at a 35-minute target and a
+45-minute maximum, and audio/video recording and transcription are prohibited.
 
 Do not resolve these automatically or use this guide operationally while they
 remain.

@@ -5,6 +5,7 @@
 **Purpose:** Recruit a varied early product and customer discovery sample  
 **Status:** Preparation only — screening and recruitment not authorised  
 **Document version:** [APPROVED VERSION REQUIRED]  
+**Approval date:** [APPROVED DATE REQUIRED]
 **Effective date:** [APPROVED EFFECTIVE DATE REQUIRED]
 
 ---
@@ -143,6 +144,11 @@ Do not collect exact residential address or postcode.
 
 ### EDR-08 — Scheduling Contact After Selection
 
+No more than two of the five Early Diagnostic Review participants may be
+founder-connected. Founder-connected participants must not dominate a
+perspective represented in the group. Exact recruitment channels remain subject
+to Project Lead approval.
+
 Collect one approved contact only after selection.
 
 **Approved dedicated contact process:** [APPROVED PROCESS REQUIRED]
@@ -279,9 +285,9 @@ cannot provide those services and use only an approved response process.
 
 ## 4. Recording
 
-Do not request recording preference for initial selection during the Early
-Diagnostic Review. Recording consent is a separate affirmative decision at the
-interview-consent stage after full information is provided.
+The first five Early Diagnostic Review interviews are notes-only. Do not ask
+about recording preference; no audio or video recording or transcription is
+permitted for those sessions.
 
 For a later wider stage, any question about willingness to consider recording is
 planning information only and never consent. Declining recording must not

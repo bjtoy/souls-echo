@@ -5,6 +5,7 @@
 **Research stage:** Gate 1 product and customer discovery  
 **Status:** Preparation only — recruitment not authorised  
 **Document version:** [APPROVED VERSION REQUIRED]  
+**Approval date:** [APPROVED DATE REQUIRED]
 **Effective date:** [APPROVED EFFECTIVE DATE REQUIRED]
 
 ---
@@ -25,8 +26,10 @@ product are as valuable as positive feedback.
 
 ## 2. What Participation May Involve
 
-Participation may involve an individual interview or concept discussion lasting
-approximately **[APPROVED DURATION REQUIRED]**.
+For the first five Early Diagnostic Review interviews, the target duration is
+approximately **35 minutes**, with a maximum planned duration of **45 minutes**.
+The session may stop earlier, and participants are not expected to answer every
+question.
 
 Topics may include physical separation, communication habits, wearables,
 charging, privacy, boundaries, gifting, shared devices, reactions to an early
@@ -66,7 +69,11 @@ or emergency service if you need that assistance.
 
 ## 5. Recording
 
-The researcher may ask separately for affirmative permission to record the
+The first five Early Diagnostic Review interviews are notes-only. No audio or
+video recording and no transcription will occur.
+
+In a later, separately approved research stage, the researcher may ask separately
+for affirmative permission to record the
 session. Recording is not included automatically in participation consent and is
 not required where the approved research method can reasonably proceed using
 notes.

@@ -5,6 +5,7 @@
 **Research stage:** Gate 1 Early Diagnostic Review  
 **Status:** Draft copy only — recruitment not authorised  
 **Document version:** [APPROVED VERSION REQUIRED]  
+**Approval date:** [APPROVED DATE REQUIRED]
 **Effective date:** [APPROVED EFFECTIVE DATE REQUIRED]
 
 ---
@@ -105,7 +106,8 @@ This activity is not counselling, medical, legal, relationship or crisis
 support. Expressing interest would not guarantee selection, a future product or
 product access, and would not add anyone to a marketing list.
 
-**Proposed duration:** [APPROVED DURATION REQUIRED]  
+**Proposed duration:** approximately 35 minutes; maximum planned duration 45 minutes
+
 **Incentive:** [NO INCENTIVE OR APPROVED TERMS REQUIRED]  
 **Closing date:** [APPROVED DATE OR NOT APPLICABLE]  
 **Dedicated project contact:** [APPROVED CONTACT METHOD REQUIRED]
@@ -156,7 +158,8 @@ in communication context, purchaser or recipient perspective, wearable use or
 scepticism, broad location and recruitment source without requiring traumatic
 disclosure or another person's identity.
 
-**Proposed session duration:** [APPROVED DURATION REQUIRED]  
+**Proposed session duration:** approximately 35 minutes; maximum planned duration 45 minutes
+
 **Incentive:** [NO INCENTIVE OR APPROVED TERMS REQUIRED]  
 **Recruitment closing date:** [APPROVED DATE OR NOT APPLICABLE]  
 **Dedicated project contact:** [APPROVED CONTACT METHOD REQUIRED]
